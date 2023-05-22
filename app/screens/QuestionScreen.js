@@ -1,16 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, Image, View, Button } from 'react-native';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-native'
 
 export default function QuestionScreen() {
 
     const answers = ["36\u00b0", "34\u00b0", "31\u00b0", "30\u00b0"]
 
-    const handlePress = (e) => {
-        if (e.target.innerText === "34\u00b0") {
-            alert("correct")
+    const navigate = useNavigate()
+
+    const handlePress = (val) => {
+        if (val === "34\u00b0") {
+            navigate("/correct")
         } else {
-            alert("incorrect")
+            navigate("/incorrect")
         }
     }
 
@@ -23,7 +26,7 @@ export default function QuestionScreen() {
                     return <Button 
                     key={answer}
                     title={answer} 
-                    onPress={handlePress}
+                    onPress={() => handlePress(answer)}
                     />
                 })}
             </View>
@@ -43,4 +46,7 @@ const styles = StyleSheet.create({
         width: '100%',
         flex: 1,
     },
+    // text: {
+    //     fontSize: "26px"
+    // }
 });

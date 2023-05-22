@@ -1,28 +1,36 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, useAppState } from 'react-native';
 import React, { useState } from 'react';
+import { NativeRouter, Routes, Route } from "react-router-native";
 
 import QuestionScreen from './app/screens/QuestionScreen';
+import CorrectScreen from './app/screens/CorrectScreen';
+import IncorrectScreen from './app/screens/IncorrectScreen';
 
 export default function App() {
 
-  const [count, setCount] = useState(0)
-  const increment = () => {
-    setCount(prev => prev + 1)
-  }
-
   return (
-    <View style={styles.container}>
-      <QuestionScreen />
-    </View>
+    <NativeRouter>
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <QuestionScreen />
+          }
+        />
+        <Route
+          path='/correct'
+          element={
+            <CorrectScreen />
+          }
+        />
+        <Route
+          path='/incorrect'
+          element={
+            <IncorrectScreen />
+          }
+        />
+      </Routes>
+    </NativeRouter>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#30f',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
