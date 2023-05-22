@@ -2,9 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, useAppState } from 'react-native';
 import React, { useState } from 'react';
 
-import QuestionScreen from './app/screens/QuestionScreen';
-
-export default function App() {
+export default function TestScreen() {
 
   const [count, setCount] = useState(0)
   const increment = () => {
@@ -13,7 +11,9 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <QuestionScreen />
+      <Text>{count}</Text>
+      <Button onPress={increment} title="Increment" />
+      <StatusBar style="auto" />
     </View>
   );
 }
