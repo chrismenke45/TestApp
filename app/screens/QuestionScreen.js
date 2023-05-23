@@ -20,13 +20,14 @@ export default function QuestionScreen() {
     return (
         <View style={styles.container}>
             <Image style={styles.image} resizeMode='contain' source={require("../assets/problem.png")} />
-            <Text>Answers:</Text>
+            <Text style={styles.text}>Answers:</Text>
             <View>
                 {answers.map(answer => {
-                    return <Button 
-                    key={answer}
-                    title={answer} 
-                    onPress={() => handlePress(answer)}
+                    return <Button
+                        titleStyle={styles.text}
+                        key={answer}
+                        title={answer}
+                        onPress={() => handlePress(answer)}
                     />
                 })}
             </View>
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
         width: '100%',
         flex: 1,
     },
-    // text: {
-    //     fontSize: "26px"
-    // }
+    text: {
+        fontSize: 40,
+    }
 });

@@ -4,8 +4,7 @@ import React, { useState } from 'react';
 import { NativeRouter, Routes, Route } from "react-router-native";
 
 import QuestionScreen from './app/screens/QuestionScreen';
-import CorrectScreen from './app/screens/CorrectScreen';
-import IncorrectScreen from './app/screens/IncorrectScreen';
+import AnswerScreen from './app/screens/AnswerScreen';
 
 export default function App() {
 
@@ -21,13 +20,13 @@ export default function App() {
         <Route
           path='/correct'
           element={
-            <CorrectScreen />
+            <AnswerScreen correct={true}/>
           }
         />
         <Route
           path='/incorrect'
           element={
-            <IncorrectScreen />
+            <AnswerScreen correct={false} />
           }
         />
       </Routes>

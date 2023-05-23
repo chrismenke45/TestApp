@@ -1,16 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { useNavigate, Link } from 'react-router-native'
+import { Link } from 'react-router-native'
 import React from 'react';
 
-export default function CorrectScreen() {
-
-    const navigate = useNavigate()
+export default function AnswerScreen(props) {
+    const { correct } = props
 
     return (
         <View style={styles.container}>
-            <Text>Correct</Text>
+            <Text style={styles.text}>{correct ? "Correct" : "Incorrect" }</Text>
             <Link to="/">
-                <Text>
+                <Text style={styles.text}>
                     Back to question
                 </Text>
             </Link>
@@ -26,4 +25,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: "100%",
     },
+    text: {
+        fontSize: 40,
+    }
 });
